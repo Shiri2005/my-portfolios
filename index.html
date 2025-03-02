@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Guess the Number Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>welcome All</h1>
-   <button  onclick="red()">Red</button>
-   <button onclick="blue()">Blue</button>
-   <button onclick="yellow()">Yellow</button>
-   <button onclick="purple()">Purple</button>
-   <button onclick="black()">Black</button>
+    <div id="box1">
+    
+    
+        <h1>Guess the Number from 1 to 10 🎲🎲</h1>
+    
+        <input type="number"  placeholder="Enter a Number" id="UserIn">
 
-<script src="/script.js"></script> 
+
+    
+        <button onclick="checkGuess()">Guess the Number</button>
+
+
+
+    
+        <script src="./Script.js"></script>
+   </div>
 </body>
 </html>

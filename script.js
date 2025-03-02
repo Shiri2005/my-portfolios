@@ -1,31 +1,16 @@
-function red(){
-var hello=document.getElementsByTagName('h1');
-console.log(hello[0]);
-hello[0].style.color="red";
+var numbers =  Math.floor(Math.random() * 10); 
+
+console.log(numbers);
+
+
+function checkGuess(){
+    var UserInput = document.getElementById("UserIn").value;
+
+    if(UserInput == numbers){
+        alert("You are right");
+    }else if(UserInput <= numbers){
+        alert("Try Highier Value");
+    }else{
+        alert("Try Lower Value");
+    }
 }
-function blue(){
-  var hello=document.getElementsByTagName('h1');
-  console.log(hello[0]);
-  hello[0].style.color="blue";
-  }
-  function yellow(){
-    var hello=document.getElementsByTagName('h1');
-    console.log(hello[0]);
-    hello[0].style.color="yellow";
-    }
-    function purple(){
-      var hello=document.getElementsByTagName('h1');
-      console.log(hello[0]);
-      hello[0].style.color="purple";
-      }
-      function black(){
-        var hello=document.getElementsByTagName('h1');
-        console.log(hello[0]);
-        hello[0].style.color="black";
-        }
-        
-      
-    
-  
-
-
