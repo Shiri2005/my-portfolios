@@ -1,16 +1,14 @@
-var numbers =  Math.floor(Math.random() * 10); 
+function genQ(){
 
-console.log(numbers);
+    fetch('https://dummyjson.com/quotes').then(response => response.json()).then(data => {
 
-
-function checkGuess(){
-    var UserInput = document.getElementById("UserIn").value;
-
-    if(UserInput == numbers){
-        alert("You are right");
-    }else if(UserInput <= numbers){
-        alert("Try Highier Value");
-    }else{
-        alert("Try Lower Value");
-    }
+        let random = Math.floor(Math.random() * 30);
+    
+        let uniqueQ = data.quotes[ random ].quote;
+    
+        let para = document.getElementsByTagName('p');
+    
+        para[0].innerText = uniqueQ;
+        
+    })
 }
