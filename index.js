@@ -5,8 +5,10 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express()
-const port=3000;
+const port=4000;
 
+app.use(express.static("public"));
+app.set("view engine", "ejs");
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,13 +17,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/",(req,res)=>{
    const d = new Date();
    let day = d.getDay();
+   const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const dayName = dayNames[day];
+
+let message = `Happy ${dayName}!`;
    if (day == 0 || day == 6) {
-     res.send("Its a weekend lets chill")
+     message += "It's a weekend- lets chill"  
    }else{
-    res.send("its a weekday lets work hard with a happy smile");
+    message += "its a weekday lets work hard with a happy smile";
 
    }
-     res.send(`<h1>${message}</h1>`);
+
+     res.render("index",{message});
 });
 
 
