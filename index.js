@@ -1,16 +1,14 @@
-//1. Create a new React app.
-//2. Create a App.jsx component.
-//3. Create a Header.jsx component that renders a <header> element
-//to show the Keeper App name in an <h1>.
-//4. Create a Footer.jsx component that renders a <footer> element
-//to show a copyright message in a <p> with a dynamically updated year.
-//5. Create a Note.jsx component to show a <div> element with a
-//<h1> for a title and a <p> for the content.
-//6. Make sure that the final website is styled like the example shown here:
-//https://l1pp6.csb.app/
-
-//HINT: You will need to study the classes in teh styles.css file to appy styling.
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "../src/App";
+import App from "./components/App";
+import "./../public/styles.css";
+
 ReactDOM.render(<App />, document.getElementById("root"));
+
+//1. Apply CSS styles to App.jsx component
+//to match the appearance on the completed app:
+//https://c6fkx.csb.app/
+//2. Extract the contact card as a reusable Card component.
+//3. Use props to render the default Beyonce contact card
+//so the Card component can be reused for other contacts.
+//4. Import the contacts.js file to create card components.
