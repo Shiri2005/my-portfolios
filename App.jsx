@@ -1,29 +1,26 @@
 import React from "react";
-import contacts from "../contacts";
-import Card from "../components/Card";
+import Entry from "./Entry";
+import emojipedia from "../emojipedia";
+
+function emj(emojipedia) {
+  return (
+    <Entry
+      key={emojipedia.id}
+      emoji={emojipedia.emoji}
+      name={emojipedia.name}
+      meaning={emojipedia.meaning}
+    />
+  );
+}
 
 function App() {
   return (
     <div>
-      <h1 className="heading">My Contacts</h1>
-      <Card
-        name={contacts[0].name}
-        img={contacts[0].imgURL}
-        tel={contacts[0].phone}
-        email={contacts[0].email}
-      />
-      <Card
-        name={contacts[1].name}
-        img={contacts[1].imgURL}
-        tel={contacts[1].phone}
-        email={contacts[1].email}
-      />
-      <Card
-        name={contacts[2].name}
-        img={contacts[2].imgURL}
-        tel={contacts[2].phone}
-        email={contacts[2].email}
-      />
+      <h1>
+        <span>emojipedia</span>
+      </h1>
+
+      <dl className="dictionary">{emojipedia.map(emj)}</dl>
     </div>
   );
 }
