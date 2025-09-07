@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from "react";
-let time = new Date().toLocaleTimeString();
+import React, { useState } from "react";
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
-  );
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  function updateTime() {
-    setCurrentTime(new Date().toLocaleTimeString());
+  const [count, setCount] = useState(0);
+  function increase() {
+    setCount(count + 1);
   }
-
+  function decrease() {
+    setCount(count - 1);
+  }
   return (
     <div className="container">
-      <h1>{currentTime}</h1>
-      <button onClick={updateTime}>Get Time</button>
+      <h1>{count}</h1>
+      <button onClick={increase}>+</button>
+      <button onClick={decrease}>-</button>
     </div>
   );
 }
