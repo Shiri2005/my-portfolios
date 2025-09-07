@@ -1,26 +1,27 @@
-import React from "react";
-import Entry from "./Entry";
-import emojipedia from "../emojipedia";
-
-function emj(emojipedia) {
-  return (
-    <Entry
-      key={emojipedia.id}
-      emoji={emojipedia.emoji}
-      name={emojipedia.name}
-      meaning={emojipedia.meaning}
-    />
-  );
-}
+import React, { useState, useEffect } from "react";
+let time = new Date().toLocaleTimeString();
 
 function App() {
-  return (
-    <div>
-      <h1>
-        <span>emojipedia</span>
-      </h1>
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString()
+  );
 
-      <dl className="dictionary">{emojipedia.map(emj)}</dl>
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  function updateTime() {
+    setCurrentTime(new Date().toLocaleTimeString());
+  }
+
+  return (
+    <div className="container">
+      <h1>{currentTime}</h1>
+      <button onClick={updateTime}>Get Time</button>
     </div>
   );
 }
