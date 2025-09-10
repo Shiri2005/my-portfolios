@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-  function increase() {
-    setCount(count + 1);
+  const [headingText, setHeadingText] = useState("hello");
+  const [butText, chanText] = useState({ backgroundColor: "white" });
+  function onit() {
+    chanText({ backgroundColor: "black" });
   }
-  function decrease() {
-    setCount(count - 1);
+  function takenaway() {
+    chanText({ backgroundColor: "white" });
   }
   return (
     <div className="container">
-      <h1>{count}</h1>
-      <button onClick={increase}>+</button>
-      <button onClick={decrease}>-</button>
+      <h1>{headingText}</h1>
+      <input type="text" placeholder="What's your name?" />
+      <button style={butText} onMouseOver={onit} onMouseOut={takenaway}>
+        Submit
+      </button>
     </div>
   );
 }
